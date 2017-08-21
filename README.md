@@ -37,7 +37,7 @@ terminal:
 ``` sh
 python getASCIIpic.py helloworld.png
 ```
-运行后得到Memory*32*8*256.txt,这里为了方便观察前几行内容，不妨把
+运行后得到Memory32×8*256.txt,这里为了方便观察前几行内容，不妨把
 前面的01串稍稍修改，另存为debug.txt,如图示
 ![](assets/README-a7f91.png)
 

@@ -1,6 +1,6 @@
 # encoding:utf-8
 
- #terminal: python getdat.py helloworld.png
+#terminal: python MyCache.py helloworld.png
 from PIL import Image
 import argparse
 
@@ -13,7 +13,7 @@ parser.add_argument('--width', type = int, default = 32 * 8) #输出字符画宽
 parser.add_argument('--height', type = int, default = 256) #输出字符画高
 
 
-# //这里要看图片像素，宽像素是多少，高像素是多少，不然不成比例
+#这里要看图片像素，宽像素是多少，高像素是多少，不然不成比例
 #获取参数
 args = parser.parse_args()
 
@@ -25,7 +25,7 @@ OUTPUT = args.output
 # ascii_char = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
 ascii_char = list("01")
 
-# 将256灰度映射到70个字符上
+# 将256灰度映射到32×8个字符上
 def get_char(r,g,b,alpha = 256):
     if alpha == 0:
         return ' '
@@ -50,13 +50,6 @@ if __name__ == '__main__':
     print txt
 
     # 字符画输出到文件
-    # if OUTPUT:
-    #     with open(OUTPUT,'w') as f:
-    #         f.write(txt)
-    # else:
-    #     with open("output.txt",'w') as f:
-    #         f.write(txt)
-    # 字符画输出到文件
     if OUTPUT:
         with open(OUTPUT,'w') as f:
             f.write(txt)
@@ -64,22 +57,3 @@ if __name__ == '__main__':
         with open("Memory32*8*256.txt",'w') as f:#二进制文件write binary
             f.write(txt)
 
-# import numpy as np
-# from PIL import Image
-# import skimage.io
-# img = Image.open("Woman.png")
-# img = img.convert("L")
-# imgs = skimage.io.imread("Woman.png")
-# ttt = np.mean(imgs)
-# WHITE, BLACK = 255, 0
-# img = img.point(lambda x: WHITE if x > ttt else BLACK)
-# img = img.convert('1')
-# img.save("girl.jpg")
-# text1 = "我爱你"
-# texlength = len(text1)
-# text2 = text1[2:texlength]
-# #将long型和string保存到文件中
-# WriteFileData = open("/home/curie/KerasBook/myverilog/test/getdat.dat",'wb')
-# for i in range(0,2047):
-#     WriteFileData.write(str(i));
-# WriteFileData.close()
